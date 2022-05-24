@@ -1,0 +1,13 @@
+.Homepage {
+    width: 80vw;
+    margin: 0 auto;
+    background-color: pink;
+    padding: 2.5em 0;
+}
+
+@media only screen and (max-width: 1000px) {
+    .Homepage {
+        width: 100vw;
+        background-color: lightblue;
+    }
+}

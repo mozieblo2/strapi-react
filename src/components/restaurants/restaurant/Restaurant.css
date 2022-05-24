@@ -1,4 +1,21 @@
-.Restaurant p {
+.Restaurant {
+    max-width: 250px;
     font-size: 14px;
     font-weight: bold;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    position: relative;
+}
+
+.Restaurant h6 {
+    margin-top: 2.5em;
+}
+
+.Restaurant__badge {
+    position: absolute;
+    top: 15px;
+    right: 0;
 }
