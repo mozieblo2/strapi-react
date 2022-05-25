@@ -1,22 +1,32 @@
-import './Restaurant.css';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Badge from '../../badge/Badge';
+import './Restaurant.css';
 
-function Restaurant(props) {
+function Restaurant({ name, description, categories, id }) {
     return (
         <div className="Restaurant">
-            <h3>{props?.name}</h3>
-            <p>{props?.description}</p>
-            {props?.categories?.data.map(el => {
+            <h3>{name}</h3>
+            <p>{description}</p>
+            {categories?.data.map(el => {
                 if (el?.attributes?.name) {
                     return (
-                        <Badge key={props.id} className="Restaurant__badge">{el.attributes.name}</Badge>
-                    )
-                } else {
-                    return null;
+                        <Badge key={id} className="Restaurant__badge">
+                            {el.attributes.name}
+                        </Badge>
+                    );
                 }
+                return null;
             })}
         </div>
     );
 }
 
 export default Restaurant;
+
+Restaurant.propTypes = {
+    name: PropTypes.string,
+    description: PropTypes.string,
+    categories: PropTypes.object,
+    id: PropTypes.number
+};

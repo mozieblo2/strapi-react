@@ -13,39 +13,36 @@ function App() {
         });
     }, []);
 
-  const addRestaurant  = () => {
-      axios.post('http://localhost:1337/api/restaurants', {
-          data: {
-              name: 'jakiś tekst',
-              description: 'test',
-              categories: [3],
-          },
-      }).then(response => {
-          setRestaurants([
-              ...restaurants,
-              response.data.data,
-          ]);
-      });
-  }
+    const addRestaurant = () => {
+        axios
+            .post('http://localhost:1337/api/restaurants', {
+                data: {
+                    name: 'jakiś tekst',
+                    description: 'test',
+                    categories: [3]
+                }
+            })
+            .then(response => {
+                setRestaurants([...restaurants, response.data.data]);
+            });
+    };
 
-  //TODO: create from for new items and add validations
-  //TODO: install formik + materialUi?
+    // TODO: create from for new items and add validations
+    // TODO: install formik + materialUi?
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Learn React with Strapi
-        </p>
-      </header>
-      <main>
-          <Homepage>
-              <Button onClick={addRestaurant}>Add Restaurant</Button>
-              <Restaurants restaurants={restaurants}/>
-          </Homepage>
-      </main>
-    </div>
-  );
+    return (
+        <div className="App">
+            <header className="App-header">
+                <p>Learn React with Strapi</p>
+            </header>
+            <main>
+                <Homepage>
+                    <Button onClick={addRestaurant}>Add Restaurant</Button>
+                    <Restaurants restaurants={restaurants} />
+                </Homepage>
+            </main>
+        </div>
+    );
 }
 
 export default App;
